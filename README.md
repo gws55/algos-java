@@ -2,10 +2,11 @@
 
 Run solutions with
 > test [name]  
+  
 where [name].java and [name]_input.txt are located in directory ./[name]
 
 ### 1
-For a string of N=3 unique characters, there are N! unique combinations as follows
+For a string of N=3 unique characters, there are N! unique combinations as follows, in-order  
 > abc  
 > acb  
 > bac  
@@ -13,9 +14,9 @@ For a string of N=3 unique characters, there are N! unique combinations as follo
 > cab  
 > cba  
   
-Implement an algorithm where given two strings for a given N, returns the non-inclusive distance between them. For example, given the following input  
+Implement an algorithm that, given two strings for a given N, returns the non-inclusive distance between them. For example, given the following input  
 > N=3 cba acb  
-<!-- -->
+
 the output is  
 > 3  
   
