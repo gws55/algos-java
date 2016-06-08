@@ -1,8 +1,9 @@
 # algos-java
 
 Run solutions with
-> test [name]  
-
+```
+test [name]  
+```
 where [name].java and [name]_input.txt are located in directory ./[name]
 
 ### 1
@@ -20,7 +21,6 @@ Implement an algorithm that, given two strings for a given N, returns the non-in
 ```
 N=3 cba acb  
 ```
-
 the output is  
 ```
 3
