@@ -60,8 +60,10 @@ class Soln
         tree();
         //printTree();
 
-        // ensure Answer is a positive number
-        if (Second.compareTo(First) < 0) {
+        // ensure Answer is a non-negative number
+        if (First.compareTo(Second) == 0) {
+            Answer = 0;
+        } else if (Second.compareTo(First) < 0) {
             Answer = Characters.indexOf(First) - Characters.indexOf(Second) - 1;
         } else {
             Answer = Characters.indexOf(Second) - Characters.indexOf(First) - 1;
