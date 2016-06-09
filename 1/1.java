@@ -9,14 +9,8 @@ class Soln
     static int N;
     static String First = "";
     static String Second = "";
-    static ArrayList<String> Characters = new ArrayList<String>();
+    static ArrayList<String> Characters = new ArrayList<String>();      // array of N! combinations, in order
     static int Answer = -1;
-
-    public static void abracadabra() {
-        tree();
-        //printTree();
-        Answer = Characters.indexOf(Second) - Characters.indexOf(First) - 1;
-    }
 
     public static void printTree() {
         System.out.println("tree = ");
@@ -35,8 +29,8 @@ class Soln
             ((String[])treeNode.get(currChar))[0] = first + second;
             ((String[])treeNode.get(currChar))[1] = second + first;
 
-            Characters.add("" + pastChars + first + second);
-            Characters.add("" + pastChars + second + first);
+            Characters.add(pastChars + first + second);
+            Characters.add(pastChars + second + first);
         } else {
             for (String c : charSet.split("")) {
                 treeNode.put(c, null);
@@ -56,19 +50,30 @@ class Soln
         Map tree = new HashMap();
         for (String c : charSet.split("")) {
             tree.put(c, new HashMap());
-
-            // recurse
             Map treeNode = (Map)tree.get(c);
-            treeHelper(treeNode, "" + c, charSet.replace(c, ""));
+
+            treeHelper(treeNode, c, charSet.replace(c, ""));    // recurse
         }
     }
 
-    /* Answers:
-        #1 4
-        #2 6
-        #3 4
-        #4 76
-        #5 10606
+    public static void abracadabra() {
+        tree();
+        //printTree();
+
+        // ensure Answer is a positive number
+        if (Second.compareTo(First) < 0) {
+            Answer = Characters.indexOf(First) - Characters.indexOf(Second) - 1;
+        } else {
+            Answer = Characters.indexOf(Second) - Characters.indexOf(First) - 1;
+        }
+    }
+
+    /* Answers to 1_input.txt:
+     *  #1 4
+     *  #2 6
+     *  #3 4
+     *  #4 76
+     *  #5 10606
      */
     public static void main(String args[]) throws Exception 
     {
@@ -80,16 +85,8 @@ class Soln
         int T = sc.nextInt();
         for (int test_case = 1; test_case <= T; ++test_case) {
             N = sc.nextInt();
-
             First = sc.next();
             Second = sc.next();
-            if (Second.compareTo(First) == 0) {
-                Answer = 0;
-            } else if (Second.compareTo(First) < 0) {
-                String tmp = First;
-                First = Second;
-                Second = tmp;
-            }
 
             abracadabra();
 

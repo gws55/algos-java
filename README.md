@@ -7,7 +7,7 @@ test [name]
 where [name].java and [name]_input.txt are located in directory ./[name]
 
 ### 1
-For a string of N=3 unique characters, there are N! unique combinations as follows, in-order:  
+For a string of N=3 unique characters, there are N! unique combinations in-order, as follows:  
 ```
 abc  
 acb  
